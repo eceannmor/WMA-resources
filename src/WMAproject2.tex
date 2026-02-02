@@ -1,0 +1,188 @@
+\documentclass[10pt]{extarticle}
+
+\usepackage{fullpage}
+\usepackage{enumitem}
+\usepackage{subcaption}
+
+% language and encoding
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+% metadata and link styling
+\usepackage[
+  pdfauthor={Ekre Ceannmor},
+  pdftitle={WMA Project 2},
+  pdfkeywords={},
+  pdfproducer={Latex with hyperref},
+  pdfcreator={tectonic},
+  colorlinks=true,
+  allcolors=MidnightBlue
+]{hyperref}
+
+% colours
+\usepackage[svgnames, table]{xcolor}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% footnotes in tables and figures
+\usepackage{tablefootnote}
+\usepackage{threeparttable}
+
+% [H] specifier
+\usepackage{float}
+
+% specifying landscape mode for a page
+\usepackage{pdflscape}
+
+% external graphics
+\usepackage{graphicx}
+\graphicspath{ {./} }
+
+% table of contents styling
+\usepackage[nottoc]{tocbibind}
+\settocbibname{References}
+\setcounter{tocdepth}{5}
+
+\usepackage{bookmark}
+
+% layout
+\topmargin = -1.5cm
+\textheight = 24cm
+
+% block highlighting
+\usepackage[framemethod=tikz]{mdframed}
+
+% pretty tables
+\usepackage{booktabs}
+
+\usepackage[symbol*]{footmisc}
+\setfnsymbol{wiley}
+
+\pagenumbering{gobble}
+
+% https://tex.stackexchange.com/questions/177202/booktabs-and-row-color
+\colorlet{tableheadcolor}{gray!25} % Table header colour = 25% gray
+\newcommand{\headcol}{\rowcolor{tableheadcolor}} %he
+\colorlet{tablerowcolor}{gray!10} % Table row separator colour = 10% gray
+\newcommand{\rowcol}{\rowcolor{tablerowcolor}} %
+% Command \topline consists of a (slightly modified) \toprule followed by a \heavyrule rule of colour tableheadcolor (hence, 2 separate rules)
+\newcommand{\topline}{\arrayrulecolor{black}\specialrule{0.1em}{\abovetopsep}{0.5pt}%
+  \arrayrulecolor{tableheadcolor}\specialrule{\belowrulesep}{0pt}{-3pt}%
+  \arrayrulecolor{black}
+}
+% Command \midline consists of 3 rules (top colour tableheadcolor, middle colour black, bottom colour white)
+\newcommand{\midline}{\arrayrulecolor{tableheadcolor}\specialrule{\aboverulesep}{-1pt}{0pt}%
+  \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+  \arrayrulecolor{white}\specialrule{\belowrulesep}{0pt}{-3pt}%
+  \arrayrulecolor{black}
+}
+% Command \rowmidlinecw consists of 3 rules (top colour tablerowcolor, middle colour black, bottom colour white)
+\newcommand{\rowmidlinecw}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+  \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+  \arrayrulecolor{white}\specialrule{\belowrulesep}{0pt}{0pt}%
+\arrayrulecolor{black}}
+% Command \rowmidlinewc consists of 3 rules (top colour white, middle colour black, bottom colour tablerowcolor)
+\newcommand{\rowmidlinewc}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+  \arrayrulecolor{black}\specialrule{\lightrulewidth}{0pt}{0pt}%
+  \arrayrulecolor{tablerowcolor}\specialrule{\belowrulesep}{0pt}{0pt}%
+\arrayrulecolor{black}}
+% Command \rowmidlinew consists of 1 white rule
+\newcommand{\rowmidlinew}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{0pt}%
+\arrayrulecolor{black}}
+% Command \rowmidlinec consists of 1 tablerowcolor rule
+\newcommand{\rowmidlinec}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+\arrayrulecolor{black}}
+% Command \bottomline consists of 2 rules (top colour)
+\newcommand{\bottomline}{\arrayrulecolor{white}\specialrule{\aboverulesep}{0pt}{-2pt}%
+\arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
+\newcommand{\bottomlinec}{\arrayrulecolor{tablerowcolor}\specialrule{\aboverulesep}{0pt}{0pt}%
+\arrayrulecolor{black}\specialrule{\heavyrulewidth}{0pt}{\belowbottomsep}}%
+
+\newcommand{\varQuad}[1]{\hskip#1em\relax}
+
+% Code blocks
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{default}{
+  commentstyle=\color{codegreen},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{magenta},
+  backgroundcolor=\color{gray!10!white},
+  breakatwhitespace=false,
+  breaklines=true,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2,
+  %=!=!=!=!=!=!=!=!=
+  language=Python,
+  %=!=!=!=!=!=!=!=!=
+  frame=tb
+}
+\lstset{style=default}
+
+% More tightly-packed text
+\usepackage{setspace}
+
+% Better indentation control
+\usepackage{parskip}
+
+\newcommand{\titletext}{Project 2}
+\newcommand{\subtitletext}{Coin tray}
+
+%===============================================================================
+\begin{document}
+
+{\Large \textbf{\titletext}} \\
+{\large \subtitletext} \\
+12 points total
+
+%===============================================================================
+\section*{Program 1}
+\label{sec:program1}
+Find and draw contours over each coin in images \texttt{tray[1-8.jpg]}. \\
+Count (and display) how many coins are:
+\begin{enumerate}[noitemsep]
+  \item Large and inside the tray
+  \item Large and outside of the tray
+  \item Small and inside the tray
+  \item Small and outside of the tray
+\end{enumerate}
+Calculate and display the area of the tray.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.95\linewidth]{tray8}
+  \end{subfigure}%
+  \begin{subfigure}{.5\textwidth}
+    \centering
+    \includegraphics[width=.95\linewidth]{tray8}
+  \end{subfigure}
+  \caption{Example output of Program 1 (image \texttt{tray8.jpg})}
+\end{figure}
+
+\subsection*{Grading}
+\begin{itemize}[noitemsep]
+  \item 2 points - Finding the contour of the tray and calculating its area.
+  \item 4 points - Use of Hough transform to find as many coins as possible\footnote{More is better but does not require 100\% accuracy}.
+  \item 1 point - Differentiating coins inside and outside of the tray.
+  \item 1 point - Differentiating small and large coins.
+  \item up to 4 points - Turning the algorithm to work correctly on all images\textsuperscript{*}.
+\end{itemize}
+12 points total.
+
+
+
+
+\end{document}
