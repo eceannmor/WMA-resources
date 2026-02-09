@@ -8,3 +8,5 @@
 *.toc
 *.lot
 *.lof
+
+.ignore
