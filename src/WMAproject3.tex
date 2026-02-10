@@ -182,11 +182,11 @@ Find and indicate key points on the same image using the SIFT method.
 \label{sec:program2}
 
 Perform feature matching using images \texttt{photo\_2\_query.jpg} and \texttt{photo\_2\_train.jpg}. \\
-Draw the image matches.
+Draw the "good" image matches and the outline of the \texttt{query} image in the \texttt{train} image.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=.95\linewidth]{photo\_2\_train}
+  \includegraphics[width=.95\linewidth]{3\_2\_result}
   \caption{Example output of Program 2}
 \end{figure}
 
@@ -198,9 +198,17 @@ Correct execution of the task. \\
 \section*{Program 3}
 \label{sec:program3}
 
+Modify your implementation of Program 2 to work on files \texttt{video\_3\_train.mp4} and \texttt{photo\_3\_query.jpg}. \\
+Draw the "good" matches and the outline of the query image for every frame. \\
+The video should play smoothly in the same window. \\
+Handle the edge cases with not enough matches, showing the last good position. \\
+Handle edge cases concerning noisy matches to prevent the outline from chaotically changing position. 
+
 \subsection*{Grading}
 \begin{itemize}[noitemsep]
-  \item
+  \item 2 points - Modification of Program 2 to work with the video
+  \item 1 point - Handling of edge cases with not enough good matches.
+  \item 1 point - Handling of edge cases with too much noise.
 \end{itemize}
 4 points total.
 
