@@ -10,7 +10,7 @@ Each project has its own directory, where you can find the task and media for th
 * [Project 3 - Feature matching](./project3/)
 * [Project 4 - Convolutional neural networks](./project4/)
 
-[Zero-term exam resources](./zero-exam/).
+The subject offers a zero-term exam. The rules and resources are [available in the respective folder](./zero-exam/).
 
 The repository is mirrored across GitHub and GitLab for redundancy.
 I suggest you clone from GitLab as it is less likely to cause issues.
